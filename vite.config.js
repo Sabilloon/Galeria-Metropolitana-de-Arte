@@ -4,13 +4,11 @@ import fs from 'node:fs';
 import { ViteMinifyPlugin } from 'vite-plugin-minify';
 import htmlPurge from 'vite-plugin-purgecss';
 import handlebars from 'vite-plugin-handlebars';
-import handlebars from 'rollup-plugin-handlebars';
 
 export default defineConfig({
   base: "/Galeria-Metropolitana-de-Arte/",
   appType: 'mpa',
   build: {
-    assetsInclude: ["*/.hbs"],
     rollupOptions: {
       input: Object.fromEntries(
         fs.readdirSync('./handles').filter((file) => file.endsWith('.hbs')).map((file) => [
