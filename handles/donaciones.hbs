@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donaciones</title>
+        <!-- Estilos compilados con less-->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="handles/slide.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Galería de Arte Metropolitano</h1>
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="inicio.hbs">Inicio</a></li>
+                <li><a href="about.hbs">Nosotros</a></li>
+                <li><a href="blog.hbs">Blog</a></li>
+                <li><a href="contactenos.hbs">Contactenos</a></li>
+                <li><a href="donaciones.hbs">Donaciones</a></li>
+                <li><a href="eventos.hbs">Eventos</a></li>
+                <li><a href="galeria.hbs">Galeria</a></li>
+                <li><a href="programas.hbs">Programas</a></li>
+                <li><a href="faq.hbs">FaQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+                <!-- Seccion de donaciones -->
+
+        <div class="donation-info">
+            <h2>Donaciones</h2>
+            <p>¡Su contribución es fundamental para el crecimiento y sostenibilidad del museo!</p>
+            
+            <div class="donation-options">
+                <h3>Opciones de donación:</h3>
+                <ul>
+                    <li>Donación única</li>
+                    <li>Donación mensual</li>
+                    <li>Donación personalizada</li>
+                </ul>
+            </div>
+            
+            <div class="donation-form">
+                <h3>Realizar una donación:</h3>
+                <form action="procesar_donacion.php" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="cantidad">Cantidad a donar:</label>
+                    <input type="number" id="cantidad" name="cantidad" required>
+                    
+                    <label for="metodo">Método de pago:</label>
+                    <select id="metodo" name="metodo">
+                        <option value="tarjeta">Tarjeta de crédito/débito</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="transferencia">Transferencia bancaria</option>
+                    </select>
+                    
+                    <input type="submit" value="Donar">
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Derechos de autor © 2023 Galería de Arte. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

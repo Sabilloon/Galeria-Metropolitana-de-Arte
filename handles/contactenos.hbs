@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactenos</title>
+        <!-- Estilos compilados con less-->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="handles/slide.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Galería de Arte Metropolitano</h1>
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="inicio.hbs">Inicio</a></li>
+                <li><a href="about.hbs">Nosotros</a></li>
+                <li><a href="blog.hbs">Blog</a></li>
+                <li><a href="contactenos.hbs">Contactenos</a></li>
+                <li><a href="donaciones.hbs">Donaciones</a></li>
+                <li><a href="eventos.hbs">Eventos</a></li>
+                <li><a href="galeria.hbs">Galeria</a></li>
+                <li><a href="programas.hbs">Programas</a></li>
+                <li><a href="faq.hbs">FaQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+                <!-- Seccion de contacto -->
+
+        <div class="contact-info">
+            <h2>Contáctenos</h2>
+            <p>Si tiene alguna pregunta o comentario, no dude en comunicarse con nosotros.</p>
+            
+            <div class="contact-details">
+                <h3>Información de contacto:</h3>
+                <p><strong>Dirección: </strong> Calle Modesto Rodas #1568, Tegucigalpa, Honduras</p>
+                <p><strong>Teléfono: </strong> +504 22569864</p>
+                <p><strong>Correo electrónico:</strong> arteurbano@museometropolitano.com</p>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Envíenos un mensaje:</h3>
+                <form action="enviar.php" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Derechos de autor © 2023 Galería de Arte. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

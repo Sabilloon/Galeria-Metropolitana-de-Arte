@@ -1,0 +1,118 @@
+// Colores
+@color-primary: #bc6c25;
+@color-secondary: #dda15e;
+@color-background: #fefae0;
+@color-text: #283618;
+
+// Tipografía
+@font-family: Georgia, serif;
+
+// Estilos de la página
+body {
+    font-family: @font-family;
+    background-color: @color-background;
+    color: @color-text;
+}
+
+/* Encabezados */
+h1, h2, h3 {
+    color: @color-primary;
+}
+
+.navbar {
+    background-color: @color-primary;
+    color: @color-text;
+    padding: 10px;
+    font-size: 18px;
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex; /* Usamos flexbox para colocar los elementos en línea */
+      li {
+        margin-right: 85px;
+        a {
+          text-decoration: none;
+          color: @color-text;
+          &:hover {
+            color: @color-secondary;
+          }
+        }
+      }
+    }
+  }
+  
+
+.hero h2 {
+    font-size: 33px; 
+    color: #780000; 
+    margin-bottom: 20px; 
+}
+
+.hero h3 {
+    font-size: 18px; 
+    color: #003049; 
+    margin-bottom: 20px; 
+}
+
+
+footer {
+    text-align: center;
+    
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    /* Agrega estilos responsivos aquí */
+}
+
+/* Estilos para el slideshow */
+
+.slideshow {
+    position: relative;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    height: 800px; /* Ajusta la altura según sea necesario */
+  }
+  
+  .slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Estilo para la primera imagen (visible al principio) */
+  .slideshow img:first-child {
+    opacity: 1; /* Hace visible la primera imagen */
+  }
+  
+  
+  /* Estilos para la galería */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+
+  .art-piece {
+      text-align: center;
+
+      img {
+          max-width: 100%;
+          height: auto;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+      }
+
+      p {
+          margin-top: 10px;
+          font-weight: bold;
+      }
+  }
+}
+
+  

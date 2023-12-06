@@ -1,0 +1,20 @@
+{
+  "name": "artemetropolitano",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "vite-plugin-handlebars": "^1.6.0",
+    "vite-plugin-minify": "^1.5.2",
+    "vite-plugin-purgecss": "^0.2.12"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
