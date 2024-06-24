@@ -54,9 +54,9 @@ img {
 /* Estilos para el slideshow */
 .slideshow {
   position: relative;
-  width: 100%;
+  width: 700px;
   /* Ajusta el ancho según sea necesario */
-  height: 800px;
+  height: 334px;
   /* Ajusta la altura según sea necesario */
 }
 .slideshow img {
