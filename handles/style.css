@@ -67,9 +67,9 @@ img {
 .slideshow {
   position: relative;
   width: 700px;
-  /* Ajusta el ancho según sea necesario */
-  height: 334px;
-  /* Ajusta la altura según sea necesario */
+  height: auto;
+  max-height: 334px;
+  overflow: hidden;
 }
 
 .slideshow img {
