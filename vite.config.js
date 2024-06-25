@@ -21,9 +21,10 @@ export default defineConfig({
   plugins: [
     handlebars({
       partialDirectory: resolve(__dirname, 'partials'),
-      
+      // Añadir cualquier otra configuración que necesites para el plugin de Handlebars
     }),
     htmlPurge({}),
     ViteMinifyPlugin({}),
   ],
+  assetsInclude: ['**/*.hbs'], // Añadir esta línea para incluir archivos .hbs como activos
 });
