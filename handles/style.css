@@ -20,6 +20,9 @@ h1 {
   color: #283618;
   padding: 10px;
   font-size: 18px;
+  border-radius: 10px; /* Redondear el navbar */
+  max-width: 1000px;
+  margin: 0 auto; /* Centrar el navbar */
 }
 
 .navbar ul {
@@ -46,12 +49,34 @@ h1 {
   font-size: 33px;
   color: #780000;
   margin-bottom: 20px;
+  text-align: center; /* Centramos el h2 */
 }
 
 .hero h3 {
   font-size: 18px;
   color: #003049;
   margin-bottom: 20px;
+  text-align: center; /* Centramos el h3 */
+}
+
+.welcome-text {
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text h3 {
+  text-align: center;
+  color: #bc6c25;
+}
+
+.welcome-text p {
+  text-align: justify;
+  color: #283618;
+  line-height: 1.6;
 }
 
 footer {
@@ -81,11 +106,15 @@ img {
   }
 }
 
+/* Estilos para el slideshow */
 .slideshow {
   position: relative;
   width: 100%;
-  height: 334px;
+  height: 500px; /* Ajuste de altura */
   overflow: hidden;
+  max-width: 1200px;
+  margin: 20px auto; /* Centrar el slideshow */
+  border-radius: 12px;
 }
 
 .slideshow img {
@@ -94,9 +123,15 @@ img {
   height: 100%;
   object-fit: cover;
   transition: opacity 1s ease-in-out;
-  opacity: 1; /* Ocultar todas las imágenes por defecto */
+  opacity: 0; /* Ocultar todas las imágenes por defecto */
 }
 
+/* Estilo para la primera imagen (visible al principio) */
+.slideshow img:first-child {
+  opacity: 1; /* Hace visible la primera imagen */
+}
+
+/* Estilos para los enlaces */
 a {
   font-weight: 500;
   color: #646cff;
@@ -108,6 +143,7 @@ a:hover {
   color: #535bf2;
 }
 
+/* Estilos para la galería de imágenes */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -164,4 +200,136 @@ a:hover {
   bottom: 10px;
   right: 10px;
   color: #fff;
+}
+
+/* Estilos adicionales para la página de donaciones */
+.donation-info {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donation-info h2, .donation-info h3 {
+  text-align: center;
+}
+
+.donation-options ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.donation-options li {
+  margin: 10px 0;
+}
+
+.donation-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-form label {
+  margin-top: 10px;
+}
+
+.donation-form input, .donation-form select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.donation-form input[type="submit"] {
+  background-color: #bc6c25;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.donation-form input[type="submit"]:hover {
+  background-color: #a05d20;
+}
+
+#confirmationMessage {
+  text-align: center;
+  color: #283618;
+}
+
+.content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content h2, .content h3, .content h4 {
+  color: #bc6c25;
+}
+
+.content p {
+  color: #283618;
+  line-height: 1.6;
+}
+
+.content hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 2px solid #bc6c25;
+}
+
+.donation-info,
+.contact-form {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details,
+.contact-form h3 {
+  text-align: center;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+  background-color: #bc6c25;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #a05d20;
+}
+
+#confirmationMessage {
+  text-align: center;
+  color: #283618;
+  font-weight: bold;
+  margin-top: 20px;
 }
