@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: Object.fromEntries(
-        fs.readdirSync('./handles').filter((file) => file.endsWith('.html')).map((file) => [
+        fs.readdirSync('./handles').filter((file) => file.endsWith('.hbs')).map((file) => [
           file.slice(0, file.length - path.extname(file).length),
           resolve(process.cwd(), 'handles', file),
         ])
