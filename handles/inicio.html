@@ -7,34 +7,63 @@
     <!-- Estilos compilados con less-->
     <link rel="stylesheet" href="style.css">
     <script src="slide.js" defer></script>
+    <script>
+        function toggleNavbar() {
+            var x = document.querySelector(".navbar-list");
+            if (x.className === "navbar-list") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar-list";
+            }
+        }
+
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+
+            var mode = body.classList.contains("dark-mode") ? "dark" : "light";
+            localStorage.setItem("mode", mode);
+
+            // Cambiar icono del botón
+            var button = document.querySelector(".dark-mode-button");
+            button.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        }
+
+        // Check and apply user's preference
+        window.onload = function() {
+            var mode = localStorage.getItem("mode");
+            if (mode === "dark") {
+                document.body.classList.add("dark-mode");
+                document.querySelector(".dark-mode-button").textContent = "☀️";
+            } else {
+                document.querySelector(".dark-mode-button").textContent = "🌙";
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Galería de Arte Metropolitano</h1>
         <!-- Barra de navegación -->
         <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="about.html">Nosotros</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contactenos.html">Contáctenos</a></li>
-                <li><a href="donaciones.html">Donaciones</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="programas.html">Programas</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
+            <div class="navbar-container">
+                <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">&#9776;</a>
+                <ul class="navbar-list">
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contactenos.html">Contáctenos</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="programas.html">Programas</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <button onclick="toggleDarkMode()" class="dark-mode-button">🌙</button>
+            </div>
         </nav>
     </header>
     <main>
-        <!-- Slideshow de imágenes -->
-        <section class="slideshow">
-            <img src="https://mymodernmet.com/wp/wp-content/uploads/2017/10/what-is-modern-art-definition-2.jpg" alt="nocheestrellada">
-            <img src="https://hips.hearstapps.com/hmg-prod/images/las-meninas-by-velazquez-as-shown-in-the-museum-de-prado-news-photo-1693154464.jpg" alt="lasmeninas">
-            <img src="https://culturaimpaciente.com/wp-content/uploads/2019/10/picasso.png" alt="picasso">
-            <img src="https://humanidades.com/wp-content/uploads/2017/04/arte-abstracto-2-e1567040857838-800x416.jpg" alt="abstracto">
-        </section>
-        
         <div class="hero">
             <h2>Colección de Arte del Museo Metropolitano</h2>
             <h3>Descubre invaluables obras artísticas de la humanidad de tiempos antiguos y modernos</h3>
@@ -47,6 +76,14 @@
             <p>Explora cada rincón y admira la maestría de los artistas reconocidos y emergentes que han dejado su huella en la historia. Nuestra misión es abrir puertas al entendimiento, inspiración y reflexión a través de estas obras maestras.</p>
             <p>Te ofrecemos una experiencia única, donde la imaginación se encuentra con la historia, y cada pincelada cuenta una historia. ¡Bienvenido a un lugar donde el arte cobra vida y las emociones se convierten en colores!</p>
         </div>
+
+        <!-- Slideshow de imágenes -->
+        <section class="slideshow">
+            <img src="https://mymodernmet.com/wp/wp-content/uploads/2017/10/what-is-modern-art-definition-2.jpg" alt="nocheestrellada">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/las-meninas-by-velazquez-as-shown-in-the-museum-de-prado-news-photo-1693154464.jpg" alt="lasmeninas">
+            <img src="https://culturaimpaciente.com/wp-content/uploads/2019/10/picasso.png" alt="picasso">
+            <img src="https://humanidades.com/wp-content/uploads/2017/04/arte-abstracto-2-e1567040857838-800x416.jpg" alt="abstracto">
+        </section>
     </main>
     <!-- Footer -->
     <footer>

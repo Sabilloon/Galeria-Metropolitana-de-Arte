@@ -5,22 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería</title>    
     <link rel="stylesheet" href="style.css">
+    <script>
+        function toggleNavbar() {
+            var x = document.querySelector(".navbar-list");
+            if (x.className === "navbar-list") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar-list";
+            }
+        }
+
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+
+            var mode = body.classList.contains("dark-mode") ? "dark" : "light";
+            localStorage.setItem("mode", mode);
+
+            // Cambiar icono del botón
+            var button = document.querySelector(".dark-mode-button");
+            button.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        }
+
+        // Check and apply user's preference
+        window.onload = function() {
+            var mode = localStorage.getItem("mode");
+            if (mode === "dark") {
+                document.body.classList.add("dark-mode");
+                document.querySelector(".dark-mode-button").textContent = "☀️";
+            } else {
+                document.querySelector(".dark-mode-button").textContent = "🌙";
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Galería de Arte Metropolitano</h1>
         <nav class="navbar">
-            <ul>
-                <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="about.html">Nosotros</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contactenos.html">Contactenos</a></li>
-                <li><a href="donaciones.html">Donaciones</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="galeria.html">Galeria</a></li>
-                <li><a href="programas.html">Programas</a></li>
-                <li><a href="faq.html">FaQ</a></li>
-            </ul>
+            <div class="navbar-container">
+                <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">&#9776;</a>
+                <ul class="navbar-list">
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contactenos.html">Contáctenos</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="programas.html">Programas</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <button onclick="toggleDarkMode()" class="dark-mode-button">🌙</button>
+            </div>
         </nav>
     </header>
 
@@ -33,91 +70,82 @@
             <div class="art-piece">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScS5SIXHg6X_-njygAy5TaLTeRaBZ5zEp7tA&s" alt="Mona Lisa">
                 <div class="description">
-                    <h3>Mona Lisa</h3>
+                    <h3 class="title">Mona Lisa</h3>
                     <p>Leonardo da Vinci (1503-1506)<br>Uno de los retratos más famosos y enigmáticos de la historia del arte, que destaca por la sonrisa enigmática de la modelo.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vincent_Willem_van_Gogh_128.jpg/640px-Vincent_Willem_van_Gogh_128.jpg" alt="Girasoles">
+                <img src="https://i.pinimg.com/564x/8b/46/ed/8b46ed582461c7b1552f1b0796620773.jpg" alt="El culumpio">
                 <div class="description">
-                    <h3>Girasoles</h3>
-                    <p>Vincent van Gogh (1888)<br>Una serie de pinturas de girasoles que capturan la intensidad de color y la energía característica del estilo expresionista de Van Gogh.</p>
+                    <h3 class="title">El Culumpio</h3>
+                    <p>Fragonard (1730-1760)<br>Una obra maestra de Fragonard, donde se recoge el espíritu refinado, exótico y sensual propio del rococó.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/The_Scream_by_Edvard_Munch%2C_1893_-_Nasjonalgalleriet.png" alt="El Grito">
+                <img src="https://i.pinimg.com/564x/cb/87/67/cb8767b1f0769a5ce351a8fc48dcbfa9.jpg" alt="Buena suerte">
                 <div class="description">
-                    <h3>El Grito</h3>
-                    <p>Edvard Munch (1893)<br>Una representación expresionista de una figura angustiada bajo un cielo tumultuoso, que simboliza la ansiedad existencial y la desesperación.</p>
+                    <h3 class="title">Buena Suerte</h3>
+                    <p>Edmund Leighton (1900)<br>Describe el momento de la partida para la guerra de un caballero con armadura a lomos de su caballo, despidiéndose de su amada.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Las_Meninas_01.jpg" alt="Las Meninas">
+                <img src="https://i.pinimg.com/564x/e9/ba/73/e9ba735023743b9663194a5a74dbb24b.jpg" alt="El salon de hercules">
                 <div class="description">
-                    <h3>Las Meninas</h3>
-                    <p>Diego Velásquez (1656)<br>Una obra icónica del postimpresionismo, conocida por sus remolinos tumultuosos de estrellas y su vibrante paleta de colores.</p>
+                    <h3 class="title">El Salon de Hercules</h3>
+                    <p>Francois Lemoyne (1736)<br>Esta gran obra que algunos han llamado la capilla sixtina francesa contiene 142 figuras y su diseño y estilo se puede comparar a la obras maestras italianas.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Meisje_met_de_parel.jpg/800px-Meisje_met_de_parel.jpg" alt="Joven de la Perla">
+                <img src="https://i.pinimg.com/564x/19/af/8c/19af8cb637926c9b056bcafad18915da.jpg" alt="Un beso al reflejo">
                 <div class="description">
-                    <h3>Joven de la Perla</h3>
-                    <p>Johannes Vermeer (1665)<br>Un retrato enigmático de una joven con una perla, conocido por el uso magistral de la luz y la atmósfera serena.</p>
+                    <h3 class="title">Un Beso al Reflejo</h3>
+                    <p>Pietro Torrini (1852)<br>Muestra a una joven besando su reflejo en un espejo dorado en una habitación elegante.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbm9jaGUtZXN0cmVsbGFkYS12YW4tZ29naC5qcGciLCJyZXNpemUsMjAwMCwyMDAwIl19.3mkWyHY4L_z-nPKgFPQik1jxy3GXcxNc0ShLGcVAlRg.jpg" alt="Noche Estrellada">
+                <img src="https://i.pinimg.com/564x/05/5e/84/055e84fbdf2824181cd57af4be323cd6.jpg" alt="Rosas en un jarron">
                 <div class="description">
-                    <h3>Noche Estrellada</h3>
-                    <p>Vincent Van Gogh (1889)<br>Una obra icónica del postimpresionismo, conocida por sus remolinos tumultuosos de estrellas y su vibrante paleta de colores.</p>
+                    <h3 class="title">Rosas en un Jarron</h3>
+                    <p>Pierre-Auguste Renoir (1870)<br>Muestra rosas en un recipiente, destacando su belleza con colores vibrantes y detalles precisos.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="Noche Estrellada sobre el Ródano">
+                <img src="https://i.pinimg.com/564x/b1/dc/04/b1dc049d92af0e967cdae6e05e30c30a.jpg" alt="mujer renacentista">
                 <div class="description">
-                    <h3>Noche Estrellada sobre el Ródano</h3>
-                    <p>Vincent van Gogh (1888)<br>Una vista nocturna del río Ródano en Arlés, Francia, caracterizada por el movimiento y la vibración de las estrellas y el agua.</p>
+                    <h3 class="title">Mujer renacentista</h3>
+                    <p>Titian (Tiziano Vecellio) (1538)<br>Se refiere a mujeres que vivieron durante el Renacimiento, un período histórico culturalmente rico en Europa.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbnljLTItMjY4LmpwZyIsInJlc2l6ZSw4MDAiXX0.oHuiNXMeCqBT1fa5I9ddteiMiKkLQ_e1lyF6l8uUsWo.jpg" alt="Persistencia de la Memoria">
+                <img src="https://i.pinimg.com/564x/49/10/9a/49109a56bedf55308dd16801081447dc.jpg" alt="El beso">
                 <div class="description">
-                    <h3>Persistencia de la Memoria</h3>
-                    <p>Salvador Dalí (1931)<br>Conocida también como "Los relojes blandos", esta obra surrealista presenta relojes derretidos en un paisaje onírico, simbolizando la relatividad del tiempo.</p>
+                    <h3 class="title">El beso</h3>
+                    <p>Gustav Klimt (1907)<br>Muestra a una pareja abrazándose apasionadamente en un entorno decorativo y dorado, destacando el amor y la intimidad.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://cdn.culturagenial.com/es/imagenes/1200px-the-last-supper-leonardo-da-vinci-high-resolution-32x16-cke.jpg" alt="Última Cena">
+                <img src="https://i.pinimg.com/564x/e3/6c/8d/e36c8d66b411dca4f09a705205c1c06b.jpg" alt="ramo de flores">
                 <div class="description">
-                    <h3>Última Cena</h3>
-                    <p>Leonardo da Vinci (1495-1498)<br>Un fresco monumental que representa el momento descrito en la Biblia en el que Jesús anuncia que uno de sus apóstoles lo traicionará.</p>
+                    <h3 class="title">Ramo de Flores</h3>
+                    <p>Claude Monet (1878)<br>Muestra un ramo de flores dispuesto en un jarrón sobre una mesa, capturando la luz y el color de manera característica del estilo impresionista.</p>
                 </div>
             </div>
 
             <div class="art-piece">
-                <img src="https://blogs.unah.edu.hn/assets/cac/blog/2183/EL-GUERNICA.jpg" alt="Guernica">
+                <img src="https://i.pinimg.com/564x/63/a9/4d/63a94dc146b6a7e877975d79c82e984a.jpg" alt="El paisaje">
                 <div class="description">
-                    <h3>Guernica</h3>
-                    <p>Pablo Picasso (1937)<br>Una obra maestra del arte contemporáneo que representa el bombardeo de la ciudad vasca durante la Guerra Civil Española, simbolizando el sufrimiento humano y la protesta contra la violencia.</p>
+                    <h3 class="title">El Paisaje</h3>
+                    <p>Claude Monet (1870)<br>Representa un hermoso paisaje en época de otoño.</p>
                 </div>
             </div>
-
-            <div class="art-piece">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Michelangelo_-_Creation_of_Adam_%28cropped%29.jpg" alt="La Creación de Adán">
-                <div class="description">
-                    <h3>La Creación de Adán</h3>
-                    <p>Michelangelo Buonarroti (1512)<br>Representa el famoso momento bíblico en el que Dios da vida a Adán.</p>
-                </div>
-            </div>
-
         </div>
     </main>
     

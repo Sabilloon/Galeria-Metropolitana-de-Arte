@@ -2,6 +2,13 @@ body {
   font-family: Georgia, serif;
   background-color: #fefae0;
   color: #283618;
+  margin: 0;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
 }
 
 /* Encabezados */
@@ -11,38 +18,69 @@ h3 {
   color: #bc6c25;
 }
 
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3 {
+  color: #ffbb00;
+}
+
 h1 {
   text-align: center; /* Centramos el h1 */
 }
 
 .navbar {
-  background-color: #bc6c25;
+  background-color: #ad3434;
   color: #283618;
   padding: 10px;
   font-size: 18px;
   border-radius: 10px; /* Redondear el navbar */
   max-width: 1000px;
   margin: 0 auto; /* Centrar el navbar */
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.navbar ul {
+body.dark-mode .navbar {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+.navbar .navbar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar .icon {
+  display: none;
+}
+
+.navbar-list {
   list-style: none;
   padding: 0;
   display: flex;
   justify-content: center; /* Centramos los elementos */
+  margin: 0; /* Remover el margen para evitar espacios extra */
 }
 
-.navbar ul li {
-  margin: 0 15px; /* Ajustamos el margen para que se vea bien en diferentes tamaños de pantalla */
+.navbar-list li {
+  margin: 15px; /* Ajustamos el margen para que se vea bien en diferentes tamaños de pantalla */
 }
 
-.navbar ul li a {
+.navbar-list li a {
   text-decoration: none;
-  color: #283618;
+  color: #ffffff;
+  transition: color 0.3s;
 }
 
-.navbar ul li a:hover {
+body.dark-mode .navbar-list li a {
+  color: #e0e0e0;
+}
+
+.navbar-list li a:hover {
   color: #dda15e;
+}
+
+body.dark-mode .navbar-list li a:hover {
+  color: #ffbb00;
 }
 
 .hero h2 {
@@ -52,6 +90,10 @@ h1 {
   text-align: center; /* Centramos el h2 */
 }
 
+body.dark-mode .hero h2 {
+  color: #ff8c00;
+}
+
 .hero h3 {
   font-size: 18px;
   color: #003049;
@@ -59,13 +101,24 @@ h1 {
   text-align: center; /* Centramos el h3 */
 }
 
+body.dark-mode .hero h3 {
+  color: #87cefa;
+}
+
 .welcome-text {
   padding: 20px;
-  max-width: 800px;
+  max-width: 1160px;
   margin: 20px auto;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .welcome-text {
+  background-color: #333;
+  color: #e0e0e0;
+  
 }
 
 .welcome-text h3 {
@@ -75,12 +128,22 @@ h1 {
 
 .welcome-text p {
   text-align: justify;
-  color: #283618;
   line-height: 1.6;
 }
 
 footer {
   text-align: center;
+  background-color: #bc6c25;
+  color: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 0 0 10px 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode footer {
+  background-color: #333;
+  color: #e0e0e0;
 }
 
 img {
@@ -89,12 +152,37 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .navbar ul {
+  .navbar .navbar-container {
     flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar .icon {
+    display: block;
+    cursor: pointer;
+    font-size: 30px; /* Ajuste del tamaño del icono */
+    padding: 10px; /* Ajuste del padding para mayor clicabilidad */
   }
 
-  .navbar ul li {
+  .navbar-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-list.responsive {
+    display: flex;
+  }
+
+  .navbar-list li {
     margin: 10px 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar-list li a {
+    display: block;
+    padding: 10px;
   }
 
   .hero h2 {
@@ -103,6 +191,13 @@ img {
 
   .hero h3 {
     font-size: 16px;
+  }
+
+  .dark-mode-button {
+    transform: scale(1.5);
+    align-self: flex-end;
+    margin-right: 10px;
+    translate: 0 -130%
   }
 }
 
@@ -143,7 +238,14 @@ a:hover {
   color: #535bf2;
 }
 
-/* Estilos para la galería de imágenes */
+body.dark-mode a {
+  color: #87cefa;
+}
+
+body.dark-mode a:hover {
+  color: #1e90ff;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -178,6 +280,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center; /* Centramos el texto */
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 5px;
@@ -202,14 +305,19 @@ a:hover {
   color: #fff;
 }
 
-/* Estilos adicionales para la página de donaciones */
 .donation-info {
   padding: 20px;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 34px auto;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .donation-info {
+  background-color: #333;
+  color: #e0e0e0;
 }
 
 .donation-info h2, .donation-info h3 {
@@ -240,6 +348,14 @@ a:hover {
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .donation-form input,
+body.dark-mode .donation-form select {
+  background-color: #444;
+  color: #e0e0e0;
+  border: 1px solid #555;
 }
 
 .donation-form input[type="submit"] {
@@ -248,15 +364,29 @@ a:hover {
   border: none;
   cursor: pointer;
   margin-top: 20px;
+  transition: background-color 0.3s;
 }
 
 .donation-form input[type="submit"]:hover {
   background-color: #a05d20;
 }
 
+body.dark-mode .donation-form input[type="submit"] {
+  background-color: #ffbb00;
+  color: #333;
+}
+
+body.dark-mode .donation-form input[type="submit"]:hover {
+  background-color: #e6a300;
+}
+
 #confirmationMessage {
   text-align: center;
   color: #283618;
+}
+
+body.dark-mode #confirmationMessage {
+  color: #ffbb00;
 }
 
 .content {
@@ -266,15 +396,31 @@ a:hover {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .content {
+  background-color: #333;
+  color: #e0e0e0;
 }
 
 .content h2, .content h3, .content h4 {
   color: #bc6c25;
 }
 
+body.dark-mode .content h2,
+body.dark-mode .content h3,
+body.dark-mode .content h4 {
+  color: #ffbb00;
+}
+
 .content p {
   color: #283618;
   line-height: 1.6;
+}
+
+body.dark-mode .content p {
+  color: #e0e0e0;
 }
 
 .content hr {
@@ -283,19 +429,13 @@ a:hover {
   border-top: 2px solid #bc6c25;
 }
 
-.donation-info,
-.contact-form {
-  padding: 20px;
-  max-width: 600px;
+.content img {
+  display: block;
   margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contact-details,
-.contact-form h3 {
-  text-align: center;
+body.dark-mode .content hr {
+  border-top: 2px solid #ffbb00;
 }
 
 .contact-form form {
@@ -313,6 +453,14 @@ a:hover {
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background-color: #444;
+  color: #e0e0e0;
+  border: 1px solid #555;
 }
 
 .contact-form input[type="submit"] {
@@ -321,15 +469,42 @@ a:hover {
   border: none;
   cursor: pointer;
   margin-top: 20px;
+  transition: background-color 0.3s;
 }
 
 .contact-form input[type="submit"]:hover {
   background-color: #a05d20;
 }
 
+body.dark-mode .contact-form input[type="submit"] {
+  background-color: #ffbb00;
+  color: #333;
+}
+
+body.dark-mode .contact-form input[type="submit"]:hover {
+  background-color: #e6a300;
+}
+
 #confirmationMessage {
   text-align: center;
   color: #283618;
-  font-weight: bold;
-  margin-top: 20px;
+}
+
+body.dark-mode #confirmationMessage {
+  color: #ffbb00;
+}
+
+/* Estilos para el botón de modo oscuro */
+.dark-mode-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffff;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+body.dark-mode .dark-mode-button {
+  color: #ffbb00;
 }

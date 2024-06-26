@@ -7,23 +7,60 @@
     <!-- Estilos compilados con less-->
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script>
+        function toggleNavbar() {
+            var x = document.querySelector(".navbar-list");
+            if (x.className === "navbar-list") {
+                x.className += " responsive";
+            } else {
+                x.className = "navbar-list";
+            }
+        }
+
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+
+            var mode = body.classList.contains("dark-mode") ? "dark" : "light";
+            localStorage.setItem("mode", mode);
+
+            // Cambiar icono del botón
+            var button = document.querySelector(".dark-mode-button");
+            button.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        }
+
+        // Check and apply user's preference
+        window.onload = function() {
+            var mode = localStorage.getItem("mode");
+            if (mode === "dark") {
+                document.body.classList.add("dark-mode");
+                document.querySelector(".dark-mode-button").textContent = "☀️";
+            } else {
+                document.querySelector(".dark-mode-button").textContent = "🌙";
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         <h1>Galería de Arte Metropolitano</h1>
         <!-- Barra de navegación -->
         <nav class="navbar">
-            <ul>
-                <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="about.html">Nosotros</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contactenos.html">Contáctenos</a></li>
-                <li><a href="donaciones.html">Donaciones</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
-                <li><a href="galeria.html">Galería</a></li>
-                <li><a href="programas.html">Programas</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
+            <div class="navbar-container">
+                <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">&#9776;</a>
+                <ul class="navbar-list">
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contactenos.html">Contáctenos</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="programas.html">Programas</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+                <button onclick="toggleDarkMode()" class="dark-mode-button">🌙</button>
+            </div>
         </nav>
     </header>
 
@@ -52,5 +89,4 @@
     <footer>
         <p>Derechos de autor © 2023 Galería de Arte. Todos los derechos reservados.</p>
     </footer>
-</body>
 </html>
